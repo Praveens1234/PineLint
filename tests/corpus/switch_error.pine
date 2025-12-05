@@ -1,0 +1,7 @@
+//@version=5
+indicator("Switch Error")
+
+int x = 10
+string s = switch x
+    undefinedVar => "Error" // Should trigger E303
+    10 => "Ten"

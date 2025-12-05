@@ -1,0 +1,19 @@
+//@version=5
+indicator("Valid V5 Script", overlay=true)
+
+// Variable declaration
+var int count = 0
+count := count + 1
+
+// Built-in function call
+plot(close, title="Close Price", color=color.blue)
+
+// Control flow
+if close > open
+    label.new(bar_index, high, "Bullish")
+else
+    label.new(bar_index, low, "Bearish")
+
+// Custom logic
+float my_sma = ta.sma(close, 14)
+plot(my_sma)

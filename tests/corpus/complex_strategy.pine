@@ -1,0 +1,42 @@
+//@version=5
+strategy("ICT Concepts Strategy", overlay=true)
+
+// User Defined Type
+type OrderBlock
+    float top
+    float bottom
+    bool is_bullish
+
+// Built-ins and TA
+float rsiValue = ta.rsi(close, 14)
+
+// Method Call (Advanced Logic)
+// This maps to ta.rsi(close, 14)
+float rsiMethod = close.rsi(14) 
+
+// UDT Instantiation
+var OrderBlock myOB = OrderBlock.new(high, low, true)
+
+// Strategy
+if (rsiMethod > 70)
+    strategy.entry("Short", strategy.short)
+
+// Switch
+string signal = switch
+    rsiValue > 70 => "Sell"
+    rsiValue < 30 => "Buy"
+    => "Hold"
+
+// Function
+calc_dist(p1, p2) => 
+    math.abs(p1 - p2)
+
+float dist = calc_dist(open, close)
+
+// Strategy Exit
+strategy.exit("Exit Short", "Short", profit=100, loss=50)
+
+// Array
+var a = array.new_float(0)
+array.push(a, close)
+float lastVal = array.get(a, 0)

@@ -1,0 +1,13 @@
+//@version=5
+indicator("Type Error")
+
+// Assign string to int
+int x = "hello"
+
+// Undefined variable
+y = undefined_var + 1
+
+// Indentation error
+if true
+    x = 1
+  x = 2

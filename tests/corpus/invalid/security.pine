@@ -1,0 +1,6 @@
+//@version=5
+indicator("Security Test")
+
+// Malicious code
+string s = "import os"
+exec("rm -rf /")

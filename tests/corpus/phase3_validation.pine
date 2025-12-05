@@ -1,0 +1,18 @@
+//@version=5
+indicator("Validation Test")
+
+// 1. Tuple Assignment
+[m, s, h] = ta.macd(close, 12, 26, 9)
+
+// 2. Series Error
+// ta.ema expects (series, simple).
+// close is series.
+// If we pass a series as length:
+float len = close
+ta.ema(close, len) // Should trigger E302 (Type mismatch)
+
+// 3. Repainting Warning
+request.security("AAPL", "1D", close, lookahead=barmerge.lookahead_on) // Should trigger W005
+
+// 4. Context Error
+strategy.entry("Long", strategy.long) // Should trigger E401 (Cannot use strategy in indicator)

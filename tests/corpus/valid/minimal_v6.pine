@@ -1,0 +1,9 @@
+//@version=6
+indicator("Valid V6 Script")
+
+// Strict bool check
+if true
+    plot(close)
+
+// New feature (mocked for now)
+request.security_lower_tf("AAPL", "1", close)

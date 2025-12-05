@@ -1,0 +1,7 @@
+indicator("Title")
+g_scanner = 'Scanner'
+i_table_show = input.bool(defval=true)
+
+string tt_ch = 
+ "Continuous Break:" + 
+ "\n• Buy"
